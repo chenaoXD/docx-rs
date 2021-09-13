@@ -110,6 +110,7 @@ writeFileSync("hello.docx", buffer);
 - [x] HIstory
 - [ ] Table of contents
 - [ ] Section
+- [ ] Track Changes
 
 ## Requirements
 
