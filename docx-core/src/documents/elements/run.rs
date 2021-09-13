@@ -203,6 +203,30 @@ impl Run {
     }
 }
 
+// Read functions
+impl Run {
+    pub fn text(self) -> String {
+        let mut run_text = "".to_string();
+
+        for child in self.children {
+            match child {
+                RunChild::Text(t) => {
+                    run_text += &t.text();
+                }
+                RunChild::Tab(_) => {
+                    run_text += "\t";
+                }
+                RunChild::Break(_) => {
+                    run_text += "\n";
+                }
+                _ => {}
+            }
+        }
+
+        run_text
+    }
+}
+
 impl BuildXML for Run {
     fn build(&self) -> Vec<u8> {
         let b = XMLBuilder::new();

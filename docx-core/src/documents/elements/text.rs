@@ -19,6 +19,11 @@ impl Text {
             preserve_space: true,
         }
     }
+
+    pub fn text(self) -> String {
+        // TODO: preserve_space not considered
+        self.text
+    }
 }
 
 impl BuildXML for Text {

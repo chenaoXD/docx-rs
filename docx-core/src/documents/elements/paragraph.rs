@@ -250,6 +250,22 @@ impl Paragraph {
     }
 }
 
+// Read functions
+impl Paragraph {
+    pub fn text(self) -> String {
+        let mut para_text = "".to_string();
+        for child in self.children {
+            match child {
+                ParagraphChild::Run(run) => {
+                    para_text += &run.text();
+                }
+                _ => {}
+            }
+        }
+        para_text
+    }
+}
+
 impl BuildXML for Paragraph {
     fn build(&self) -> Vec<u8> {
         XMLBuilder::new()
